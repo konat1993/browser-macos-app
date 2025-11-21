@@ -1,2 +1,3 @@
-export * from "./Navbar/Navbar";
-export * from "./Welcome/Welcome";
+export * from "./Navbar";
+export * from "./Welcome";
+export * from "./Dock";

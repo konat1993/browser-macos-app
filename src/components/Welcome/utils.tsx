@@ -128,7 +128,6 @@ export const setupTextHover = ({
 	};
 
 	container.addEventListener("mousemove", handleMouseMoveWrapper);
-
 	container.addEventListener("mouseleave", handleMouseLeaveWrapper);
 
 	return () => {

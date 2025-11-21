@@ -3,8 +3,8 @@ import { renderText, setupTextHover } from "./utils";
 import { useGSAP } from "@gsap/react";
 
 export const Welcome = () => {
-	const titleRef = useRef(null);
-	const subtitleRef = useRef(null);
+	const titleRef = useRef<HTMLHeadingElement | null>(null);
+	const subtitleRef = useRef<HTMLParagraphElement | null>(null);
 
 	useGSAP(() => {
 		const titleCleanup = setupTextHover({
