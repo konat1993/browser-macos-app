@@ -1,7 +1,7 @@
 import { navIcons, navLinks } from "#constants";
 import dayjs from "dayjs";
 
-const Navbar = () => {
+export const Navbar = () => {
 	return (
 		<nav>
 			<div>
@@ -37,5 +37,3 @@ const Navbar = () => {
 		</nav>
 	);
 };
-
-export default Navbar;
