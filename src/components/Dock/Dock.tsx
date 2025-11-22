@@ -2,9 +2,13 @@ import { dockApps } from "#constants";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { Tooltip } from "react-tooltip";
-import { setupDockHover } from "./utils";
+import { isWindowIdMatched, setupDockHover } from "./utils";
+import { useWindowStore } from "#store";
+import type { DockApps } from "./types";
 
 export const Dock = () => {
+	const { windows, closeWindow, openWindow } = useWindowStore();
+
 	const dockRef = useRef<HTMLDivElement | null>(null);
 
 	useGSAP(() => {
@@ -17,11 +21,20 @@ export const Dock = () => {
 		};
 	}, []);
 
-	const toggleApp = (
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		_app: Pick<(typeof dockApps)[number], "id" | "canOpen">
-	) => {
-		// TODO: Implement window logic
+	const toggleApp = (app: {
+		id: DockApps[number]["id"];
+		canOpen: DockApps[number]["canOpen"];
+	}) => {
+		if (!app.canOpen) return;
+		if (!isWindowIdMatched(app.id)) return;
+
+		const currentWindow = windows[app.id];
+
+		if (currentWindow.isOpen) {
+			closeWindow({ windowKey: app.id });
+		} else {
+			openWindow({ windowKey: app.id });
+		}
 	};
 
 	return (

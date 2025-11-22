@@ -1,4 +1,10 @@
 import gsap from "gsap";
+import { WINDOW_CONFIG } from "#constants";
+import type { WindowsData } from "./types";
+
+export const isWindowIdMatched = (id: string): id is keyof WindowsData => {
+	return id in WINDOW_CONFIG;
+};
 
 const animateIcons = ({
 	mouseX,
