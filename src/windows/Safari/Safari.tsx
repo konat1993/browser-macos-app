@@ -1,5 +1,6 @@
 import { WindowControls } from "#components";
 import { blogPosts } from "#constants";
+import type { BlogPost } from "#constants/types";
 import { WindowWrapper } from "#hoc";
 import {
 	ChevronLeft,
@@ -13,7 +14,7 @@ import {
 	ShieldHalf,
 } from "lucide-react";
 
-const renderBlogPosts = (blogPostsData: typeof blogPosts) => {
+const renderBlogPosts = (blogPostsData: BlogPost[]) => {
 	return blogPostsData.map(({ id, date, title, image, link }) => (
 		<div key={id} className="blog-post">
 			<div className="col-span-2">
