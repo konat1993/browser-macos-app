@@ -1,10 +1,10 @@
-import type { WindowsData } from "#components/Dock/types";
+import type { WindowKey, WindowsConfig } from "#constants/types";
 
-export type WindowState = { windows: WindowsData; nextZIndex: number };
+export type WindowState = { windows: WindowsConfig; nextZIndex: number };
 
-export type WindowActionArgsType = {
-	windowKey: keyof WindowsData;
-	data?: null;
+type WindowActionArgsType = {
+	windowKey: WindowKey;
+	data?: WindowsConfig[WindowKey]["data"];
 };
 
 export type WindowActions = {

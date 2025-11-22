@@ -1,11 +1,7 @@
+import type { WindowKey } from "#constants/types";
 import { useWindowStore } from "#store";
-import type { WindowActionArgsType } from "#store/types";
 
-export const WindowControls = ({
-	target,
-}: {
-	target: WindowActionArgsType["windowKey"];
-}) => {
+export const WindowControls = ({ target }: { target: WindowKey }) => {
 	const { closeWindow } = useWindowStore();
 	return (
 		<div id="window-controls">

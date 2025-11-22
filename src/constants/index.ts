@@ -1,4 +1,13 @@
-export const navLinks = [
+import type {
+	BlogPost,
+	DockApp,
+	NavIcons,
+	NavLink,
+	TechStack,
+	WindowsConfig,
+} from "./types";
+
+export const navLinks: NavLink[] = [
 	{
 		id: 1,
 		name: "Projects",
@@ -16,7 +25,7 @@ export const navLinks = [
 	},
 ];
 
-export const navIcons = [
+export const navIcons: NavIcons[] = [
 	{
 		id: 1,
 		img: "/icons/wifi.svg",
@@ -35,7 +44,7 @@ export const navIcons = [
 	},
 ];
 
-export const dockApps = [
+export const dockApps: DockApp[] = [
 	{
 		id: "finder",
 		name: "Portfolio", // was "Finder"
@@ -74,7 +83,7 @@ export const dockApps = [
 	},
 ];
 
-export const blogPosts = [
+export const blogPosts: BlogPost[] = [
 	{
 		id: 1,
 		date: "Sep 2, 2025",
@@ -98,7 +107,7 @@ export const blogPosts = [
 	},
 ];
 
-export const techStack = [
+export const techStack: TechStack[] = [
 	{
 		category: "Frontend",
 		items: ["React.js", "Next.js", "TypeScript"],
@@ -480,7 +489,7 @@ export const locations = {
 
 export const INITIAL_Z_INDEX = 1000;
 
-export const WINDOW_CONFIG = {
+export const WINDOW_CONFIG: WindowsConfig = {
 	finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
