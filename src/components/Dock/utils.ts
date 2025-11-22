@@ -1,8 +1,8 @@
 import gsap from "gsap";
 import { WINDOW_CONFIG } from "#constants";
-import type { WindowsData } from "./types";
+import type { WindowKey } from "#constants/types";
 
-export const isWindowIdMatched = (id: string): id is keyof WindowsData => {
+export const isWindowIdMatched = (id: string): id is WindowKey => {
 	return id in WINDOW_CONFIG;
 };
 

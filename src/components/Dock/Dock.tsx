@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { Tooltip } from "react-tooltip";
 import { isWindowIdMatched, setupDockHover } from "./utils";
 import { useWindowStore } from "#store";
-import type { DockApps } from "./types";
+import type { DockApp } from "#constants/types";
 
 export const Dock = () => {
 	const { windows, closeWindow, openWindow } = useWindowStore();
@@ -22,8 +22,8 @@ export const Dock = () => {
 	}, []);
 
 	const toggleApp = (app: {
-		id: DockApps[number]["id"];
-		canOpen: DockApps[number]["canOpen"];
+		id: DockApp["id"];
+		canOpen: DockApp["canOpen"];
 	}) => {
 		if (!app.canOpen) return;
 		if (!isWindowIdMatched(app.id)) return;

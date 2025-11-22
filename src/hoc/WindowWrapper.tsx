@@ -1,4 +1,4 @@
-import type { WindowsData } from "#components/Dock/types";
+import type { WindowKey } from "#constants/types";
 import { useWindowStore } from "#store";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -7,7 +7,7 @@ import { useLayoutEffect, useRef } from "react";
 
 type Props<P> = {
 	Component: React.ComponentType<P>;
-	windowKey: keyof WindowsData;
+	windowKey: WindowKey;
 };
 
 export const WindowWrapper = <P extends object>({

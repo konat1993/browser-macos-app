@@ -1,9 +1,10 @@
 import { WindowControls } from "#components";
 import { techStack } from "#constants";
+import type { TechStack } from "#constants/types";
 import { WindowWrapper } from "#hoc";
 import { Check, Flag } from "lucide-react";
 
-const renderTechStack = (techStackData: typeof techStack) =>
+const renderTechStack = (techStackData: TechStack[]) =>
 	techStackData.map(({ category, items }) => (
 		<li key={category} className="flex items-center">
 			<Check className="check" size={20} />
