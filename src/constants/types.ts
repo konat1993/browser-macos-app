@@ -45,3 +45,64 @@ export type BlogPost = {
 	image: string;
 	link: string;
 };
+
+// Locations types
+// ============
+// Core Types
+// ============
+
+export type BaseNode = {
+	id: number;
+	name: string;
+	icon: string;
+	kind: "file" | "folder";
+	position?: string; // position inside Finder
+	windowPosition?: string; // optional Finder window position
+};
+
+// ------------------
+// FILES
+// ------------------
+
+export type FileType = "txt" | "img" | "url" | "fig" | "pdf";
+
+export interface FileNode extends BaseNode {
+	kind: "file";
+	fileType: FileType;
+	href?: string;
+	imageUrl?: string;
+	description?: string[];
+	subtitle?: string;
+	image?: string;
+}
+
+// ------------------
+// FOLDERS
+// ------------------
+
+export interface FolderNode extends BaseNode {
+	kind: "folder";
+	children: ExplorerNode[];
+}
+
+export type ExplorerNode = FileNode | FolderNode;
+
+// ============
+// LOCATIONS
+// ============
+
+export interface BaseLocation extends FolderNode {
+	type: "work" | "about" | "resume" | "trash";
+}
+
+export type WorkLocation = BaseLocation & { type: "work" };
+export type AboutLocation = BaseLocation & { type: "about" };
+export type ResumeLocation = BaseLocation & { type: "resume" };
+export type TrashLocation = BaseLocation & { type: "trash" };
+
+export type Locations = {
+	work: WorkLocation;
+	about: AboutLocation;
+	resume: ResumeLocation;
+	trash: TrashLocation;
+};
