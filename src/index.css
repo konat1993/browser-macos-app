@@ -169,7 +169,7 @@ body {
       @apply font-bold text-sm text-center w-full;
     }
 
-    .techstack {
+    .tech_stack {
       @apply text-sm font-roboto p-5;
 
       .label {
