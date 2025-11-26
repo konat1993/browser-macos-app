@@ -1,3 +1,2 @@
-import useWindowStore from "./window";
-
-export { useWindowStore };
+export { useWindowStore } from "./window";
+export { useLocationStore } from "./location";
