@@ -1,7 +1,11 @@
 import { INITIAL_Z_INDEX, WINDOW_CONFIG } from "#constants";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import type { WindowActions, WindowState } from "./types";
+import {
+	isValidWindowKey,
+	type WindowActions,
+	type WindowState,
+} from "./types";
 
 export const useWindowStore = create(
 	immer<WindowState & WindowActions>((set) => ({
@@ -10,6 +14,18 @@ export const useWindowStore = create(
 
 		openWindow: ({ windowKey, data = null }) =>
 			set((state) => {
+				if (
+					!isValidWindowKey(
+						state.windows,
+						windowKey
+					)
+				) {
+					console.warn(
+						`Invalid window key: ${windowKey}`
+					);
+					return;
+				}
+
 				const window = state.windows[windowKey];
 				window.isOpen = true;
 				window.zIndex = state.nextZIndex;
@@ -19,6 +35,18 @@ export const useWindowStore = create(
 
 		closeWindow: ({ windowKey }) =>
 			set((state) => {
+				if (
+					!isValidWindowKey(
+						state.windows,
+						windowKey
+					)
+				) {
+					console.warn(
+						`Invalid window key: ${windowKey}`
+					);
+					return;
+				}
+
 				const window = state.windows[windowKey];
 				window.isOpen = false;
 				window.zIndex = INITIAL_Z_INDEX;
@@ -27,10 +55,20 @@ export const useWindowStore = create(
 
 		focusWindow: ({ windowKey }) =>
 			set((state) => {
+				if (
+					!isValidWindowKey(
+						state.windows,
+						windowKey
+					)
+				) {
+					console.warn(
+						`Invalid window key: ${windowKey}`
+					);
+					return;
+				}
+
 				const window = state.windows[windowKey];
 				window.zIndex = state.nextZIndex++;
 			}),
 	}))
 );
-
-export default useWindowStore;

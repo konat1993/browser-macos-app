@@ -12,7 +12,7 @@ export type WindowsConfig = {
 	[key in WindowKey]: {
 		isOpen: boolean;
 		zIndex: number;
-		data: null;
+		data: FileNode | null;
 	};
 };
 

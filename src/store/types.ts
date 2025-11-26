@@ -1,10 +1,27 @@
-import type { WindowKey, WindowsConfig, WorkLocation } from "#constants/types";
+import type {
+	WindowKey,
+	WindowsConfig,
+	WorkLocation,
+	AboutLocation,
+	ResumeLocation,
+	TrashLocation,
+	FileType,
+	BaseNode,
+	ExplorerNode,
+} from "#constants/types";
 
 export type WindowState = { windows: WindowsConfig; nextZIndex: number };
 
 type WindowActionArgsType = {
-	windowKey: WindowKey;
+	windowKey: WindowKey | `${FileType}${BaseNode["kind"]}`;
 	data?: WindowsConfig[WindowKey]["data"];
+};
+
+export const isValidWindowKey = (
+	windows: WindowsConfig,
+	key: string
+): key is WindowKey => {
+	return key in windows;
 };
 
 export type WindowActions = {
@@ -14,10 +31,18 @@ export type WindowActions = {
 };
 
 export type LocationState = {
-	activeLocation: WorkLocation | null;
+	activeLocation:
+		| WorkLocation
+		| AboutLocation
+		| ResumeLocation
+		| TrashLocation
+		| ExplorerNode
+		| null;
 };
 
 export type LocationActions = {
-	setActiveLocation: (setActiveLocationArgs: WorkLocation | null) => void;
+	setActiveLocation: (
+		setActiveLocationArgs: LocationState["activeLocation"]
+	) => void;
 	resetActiveLocation: () => void;
 };
