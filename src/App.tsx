@@ -1,5 +1,10 @@
 import { Dock, Navbar, Welcome } from "#components";
-import { ResumeWindow, SafariWindow, TerminalWindow } from "#windows";
+import {
+	FinderWindow,
+	ResumeWindow,
+	SafariWindow,
+	TerminalWindow,
+} from "#windows";
 import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
 
@@ -15,6 +20,7 @@ const App = () => {
 			<TerminalWindow />
 			<SafariWindow />
 			<ResumeWindow />
+			<FinderWindow />
 		</main>
 	);
 };
