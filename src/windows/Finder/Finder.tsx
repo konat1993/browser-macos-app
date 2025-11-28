@@ -74,7 +74,7 @@ const Finder = () => {
 				<li
 					key={item.id}
 					className={item.position}
-					onClick={() => openItem(item)}
+					onDoubleClick={() => openItem(item)}
 				>
 					<img src={item.icon} alt={item.name} />
 					<p>{item.name}</p>
