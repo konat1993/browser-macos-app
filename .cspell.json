@@ -1,34 +1,18 @@
 {
-	"version": "0.2",
-	"language": "en,pl",
-	"useGitignore": true,
-	"dictionaries": [
-		"pl_pl",
-		"en_us",
-		"softwareTerms",
-		"node",
-		"typescript",
-		"html"
-	],
-	"ignorePaths": [
-		"node_modules",
-		"dist",
-		"build",
-		"coverage",
-		".git",
-		"pnpm-lock.yaml",
-		"package-lock.json",
-		"yarn.lock",
-		"public/**"
-	],
-	"words": [
-		"Ecommerce",
-		"gicon",
-		"gsap",
-		"imgfile",
-		"Lukasz",
-		"txtfile",
-		"Vuetify",
-		"wght"
-	]
+  "version": "0.2",
+  "language": "en,pl",
+  "useGitignore": true,
+  "dictionaries": ["pl_pl", "en_us", "softwareTerms", "node", "typescript", "html"],
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    ".git",
+    "pnpm-lock.yaml",
+    "package-lock.json",
+    "yarn.lock",
+    "public/**"
+  ],
+  "words": ["Ecommerce", "gicon", "gsap", "imgfile", "Lukasz", "txtfile", "Vuetify", "wght"]
 }
