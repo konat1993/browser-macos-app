@@ -92,6 +92,7 @@ export const experiences: Experience[] = [
 	{
 		id: 1,
 		title: "Advertising Campaign Management Platform",
+		logo: "/images/ad-web-logo.png",
 		stack: [
 			"TypeScript",
 			"React",
@@ -112,6 +113,7 @@ export const experiences: Experience[] = [
 		id: 2,
 		title: "Advertising Banners Management Platform",
 		stack: ["TypeScript", "Vue 3", "Nuxt 3", "Vuetify", "SASS"],
+		logo: "/images/ad-logo.png",
 		contributions: [
 			"Implemented full-stack features in Nuxt 3 (frontend + server routes)",
 			"Built reusable UI components and design-system-aligned layouts",
@@ -131,6 +133,7 @@ export const experiences: Experience[] = [
 			"styled-components",
 			"React Query",
 		],
+		logo: "/images/cookie-logo.png",
 		contributions: [
 			"Developed responsive UI components",
 			"Integrated REST APIs for consent management",
@@ -210,64 +213,17 @@ export const socials = [
 	},
 ];
 
-export const photosLinks = [
-	{
-		id: 1,
-		icon: "/icons/gicon1.svg",
-		title: "Library",
-	},
-	{
-		id: 2,
-		icon: "/icons/gicon2.svg",
-		title: "Memories",
-	},
-	{
-		id: 3,
-		icon: "/icons/file.svg",
-		title: "Places",
-	},
-	{
-		id: 4,
-		icon: "/icons/gicon4.svg",
-		title: "People",
-	},
-	{
-		id: 5,
-		icon: "/icons/gicon5.svg",
-		title: "Favorites",
-	},
-];
-
-export const gallery = [
-	{
-		id: 1,
-		img: "/images/gal1.png",
-	},
-	{
-		id: 2,
-		img: "/images/gal2.png",
-	},
-	{
-		id: 3,
-		img: "/images/gal3.png",
-	},
-	{
-		id: 4,
-		img: "/images/gal4.png",
-	},
-];
-
 const WORK_LOCATION: WorkLocation = {
 	id: 1,
 	type: "work",
-	name: "Work",
+	name: "Projects",
 	icon: "/icons/work.svg",
 	kind: "folder",
 	children: [
 		// ▶ Project 1
 		{
 			id: 5,
-			name: "Nike Ecommerce Website Application",
+			name: "React Native Todo App",
 			icon: "/images/folder.png",
 			kind: "folder",
 			position: "top-10 left-5", // icon position inside Finder
@@ -275,43 +231,45 @@ const WORK_LOCATION: WorkLocation = {
 			children: [
 				{
 					id: 1,
-					name: "Nike Project.txt",
+					name: "README.md",
 					icon: "/images/txt.png",
 					kind: "file",
-					fileType: "txt",
+					fileType: "md",
 					position: "top-5 left-10",
-					description: [
-						"The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
-						"Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
-						"Think of it like walking into a flagship Nike store—but right from your phone or laptop.",
-						"It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
-					],
+					markDownUrlFile:
+						"/files/react-native-readme.md",
 				},
 				{
 					id: 2,
-					name: "nike.com",
+					name: "app-github",
 					icon: "/images/safari.png",
 					kind: "file",
 					fileType: "url",
-					href: "https://youtu.be/fZdTYswuZjU?si=Awjl-pIst9e09_UU",
+					href: "https://github.com/konat1993/react-native-todo-app",
 					position: "top-10 right-20",
 				},
 				{
-					id: 4,
-					name: "nike.png",
+					id: 3,
+					name: "app-shots.png",
 					icon: "/images/image.png",
 					kind: "file",
 					fileType: "img",
 					position: "top-52 right-80",
-					imageUrl: "/images/project-1.png",
+					images: [
+						"/images/react-native-shot-1.jpg",
+						"/images/react-native-shot-2.jpg",
+						"/images/react-native-shot-3.jpg",
+						"/images/react-native-shot-4.jpg",
+						"/images/react-native-shot-5.jpg",
+					],
 				},
 				{
-					id: 5,
+					id: 4,
 					name: "Design.fig",
 					icon: "/images/plain.png",
 					kind: "file",
 					fileType: "fig",
-					href: "https://google.com",
+					href: "https://www.figma.com/",
 					position: "top-60 right-20",
 				},
 			],
@@ -350,7 +308,7 @@ const WORK_LOCATION: WorkLocation = {
 					position: "top-20 left-20",
 				},
 				{
-					id: 4,
+					id: 3,
 					name: "ai-resume-analyzer.png",
 					icon: "/images/image.png",
 					kind: "file",
@@ -359,7 +317,7 @@ const WORK_LOCATION: WorkLocation = {
 					imageUrl: "/images/project-2.png",
 				},
 				{
-					id: 5,
+					id: 4,
 					name: "Design.fig",
 					icon: "/images/plain.png",
 					kind: "file",
@@ -403,7 +361,7 @@ const WORK_LOCATION: WorkLocation = {
 					position: "top-10 right-20",
 				},
 				{
-					id: 4,
+					id: 3,
 					name: "food-delivery-app.png",
 					icon: "/images/image.png",
 					kind: "file",
@@ -412,7 +370,7 @@ const WORK_LOCATION: WorkLocation = {
 					imageUrl: "/images/project-3.png",
 				},
 				{
-					id: 5,
+					id: 4,
 					name: "Design.fig",
 					icon: "/images/plain.png",
 					kind: "file",
@@ -543,4 +501,5 @@ export const WINDOW_CONFIG: WindowsConfig = {
 	resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 	imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+	md: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };
