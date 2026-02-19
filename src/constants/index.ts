@@ -1,6 +1,6 @@
 import type {
 	AboutLocation,
-	BlogPost,
+	Experience,
 	DockApp,
 	Locations,
 	NavIcons,
@@ -88,51 +88,87 @@ export const dockApps: DockApp[] = [
 	},
 ];
 
-export const blogPosts: BlogPost[] = [
+export const experiences: Experience[] = [
 	{
 		id: 1,
-		date: "Sep 2, 2025",
-		title: "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
-		image: "/images/blog1.png",
-		link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
+		title: "Advertising Campaign Management Platform",
+		stack: [
+			"TypeScript",
+			"React",
+			"AntD",
+			"styled-components",
+			"Redux",
+		],
+		contributions: [
+			"Built responsive and reusable UI components",
+			"Integrated REST API endpoints and coordinated API contract updates",
+			"Created and maintained unit & integration tests (Vitest, RTL)",
+			"Participated in code reviews and improved coding standards",
+			"Collaborated with product owners and stakeholders on requirements",
+			"Managed tasks and documentation in Jira + Confluence",
+		],
 	},
 	{
 		id: 2,
-		date: "Aug 28, 2025",
-		title: "The Ultimate Guide to Mastering Three.js for 3D Development",
-		image: "/images/blog2.png",
-		link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
+		title: "Advertising Banners Management Platform",
+		stack: ["TypeScript", "Vue 3", "Nuxt 3", "Vuetify", "SASS"],
+		contributions: [
+			"Implemented full-stack features in Nuxt 3 (frontend + server routes)",
+			"Built reusable UI components and design-system-aligned layouts",
+			"Integrated REST APIs for creatives management",
+			"Worked with analytics and tag-management tools",
+			"Onboarded new frontend developers",
+			"Participated in code reviews and maintained documentation",
+		],
 	},
 	{
 		id: 3,
-		date: "Aug 15, 2025",
-		title: "The Ultimate Guide to Mastering GSAP Animations",
-		image: "/images/blog3.png",
-		link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
+		title: "User Consent Management Platform (Cookies)",
+		stack: [
+			"TypeScript",
+			"React",
+			"Material UI",
+			"styled-components",
+			"React Query",
+		],
+		contributions: [
+			"Developed responsive UI components",
+			"Integrated REST APIs for consent management",
+			"Implemented state management with React Query",
+			"Built unit & integration tests (Vitest, RTL)",
+			"Worked closely with UX/UI designers to deliver pixel-perfect components",
+		],
 	},
 ];
 
 export const techStack: TechStack[] = [
 	{
 		category: "Frontend",
-		items: ["React.js", "Next.js", "TypeScript"],
+		items: ["React.js", "Next.js", "TypeScript", "Angular"],
 	},
 	{
 		category: "Mobile",
-		items: ["React Native", "Expo"],
+		items: ["React Native"],
 	},
 	{
 		category: "Styling",
-		items: ["Tailwind CSS", "Sass", "CSS"],
+		items: [
+			"Tailwind CSS",
+			"Sass",
+			"CSS",
+			"Material UI",
+			"Ant Design",
+			"Styled Components",
+		],
 	},
-	{
-		category: "Backend",
-		items: ["Node.js", "Express", "NestJS", "Hono"],
-	},
-	{
-		category: "Database",
-		items: ["MongoDB", "PostgreSQL"],
-	},
+	// {
+	// 	category: "Backend",
+	// 	items: ["Node.js", "Express", "NestJS"],
+	// },
+	// {
+	// 	category: "Database",
+	// 	items: ["MongoDB", "PostgreSQL"],
+	// },
 	{
 		category: "Dev Tools",
 		items: ["Git", "GitHub", "Docker"],
@@ -142,31 +178,35 @@ export const techStack: TechStack[] = [
 export const socials = [
 	{
 		id: 1,
-		text: "Github",
-		icon: "/icons/github.svg",
-		bg: "#f4656b",
-		link: "https://github.com/JavaScript-Mastery-Pro",
-	},
-	{
-		id: 2,
-		text: "Platform",
-		icon: "/icons/atom.svg",
-		bg: "#4bcb63",
-		link: "https://jsmastery.com/",
-	},
-	{
-		id: 3,
-		text: "Twitter/X",
-		icon: "/icons/twitter.svg",
-		bg: "#ff866b",
-		link: "https://x.com/jsmasterypro",
-	},
-	{
-		id: 4,
 		text: "LinkedIn",
 		icon: "/icons/linkedin.svg",
 		bg: "#05b6f6",
-		link: "https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all",
+		link: "https://www.linkedin.com/in/lukasz-konatowski",
+		disabled: false,
+	},
+	{
+		id: 2,
+		text: "Github",
+		icon: "/icons/github.svg",
+		bg: "#f4656b",
+		link: "https://github.com/konat1993",
+		disabled: false,
+	},
+	{
+		id: 3,
+		text: "Platform",
+		icon: "/icons/atom.svg",
+		bg: "#4bcb63",
+		link: "/",
+		disabled: true,
+	},
+	{
+		id: 4,
+		text: "Twitter/X",
+		icon: "/icons/twitter.svg",
+		bg: "#ff866b",
+		link: "/",
+		disabled: true,
 	},
 ];
 

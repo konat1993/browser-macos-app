@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 
 export const Navbar = () => {
 	const { openWindow } = useWindowStore();
+
 	return (
 		<nav>
 			<div>
@@ -39,8 +40,9 @@ export const Navbar = () => {
 						</li>
 					))}
 				</ul>
-				<time>
-					{dayjs().format("ddd MMM d h:mm A")}
+				<time className="flex items-center gap-2">
+					<div>{dayjs().format("ddd MMM D")}</div>
+					<div>{dayjs().format(" h:mm A")}</div>
 				</time>
 			</div>
 		</nav>

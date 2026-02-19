@@ -4,3 +4,4 @@ export * from "./Resume";
 export * from "./Finder";
 export * from "./Text";
 export * from "./Image";
+export * from "./Contact";

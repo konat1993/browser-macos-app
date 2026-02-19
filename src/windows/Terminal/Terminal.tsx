@@ -6,11 +6,13 @@ import { Check, Flag } from "lucide-react";
 
 const renderTechStack = (techStackData: TechStack[]) =>
 	techStackData.map(({ category, items }) => (
-		<li key={category} className="flex items-center">
-			<Check className="check" size={20} />
-			<h3>{category}</h3>
+		<li key={category} className="flex items-start">
+			<div className="flex">
+				<Check className="check" size={20} />
+				<h3>{category}</h3>
+			</div>
 
-			<ul>
+			<ul className="flex flex-wrap gap-x-2 gap-y-0">
 				{items.map((item, idx) => (
 					<li key={`${idx}-${item}`}>
 						{item}
@@ -24,6 +26,7 @@ const renderTechStack = (techStackData: TechStack[]) =>
 	));
 
 const Terminal = () => {
+	const totalTechStack = techStack.length;
 	return (
 		<>
 			<div id="window-header">
@@ -41,14 +44,15 @@ const Terminal = () => {
 					<p className="w-32">Category</p>
 					<p>Technologies</p>
 				</div>
-				<ul className="content">
+				<ul className="content space-y-2">
 					{renderTechStack(techStack)}
 				</ul>
 				<div className="footnote">
 					<p>
-						<Check size={20} /> 5 of 5
-						stacks loaded successfully
-						(100%)
+						<Check size={20} />{" "}
+						{totalTechStack} of{" "}
+						{totalTechStack} stacks loaded
+						successfully (100%)
 					</p>
 					<p className="text-black">
 						<Flag size={15} fill="black" />

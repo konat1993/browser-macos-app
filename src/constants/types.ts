@@ -38,12 +38,11 @@ export type TechStack = {
 	category: string;
 	items: string[];
 };
-export type BlogPost = {
+export type Experience = {
 	id: number;
-	date: string;
 	title: string;
-	image: string;
-	link: string;
+	stack: string[];
+	contributions: string[];
 };
 
 // Locations types
