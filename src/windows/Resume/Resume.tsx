@@ -1,3 +1,5 @@
+import { useState } from "react";
+import type { PDFDocumentProxy } from "pdfjs-dist";
 import { WindowControls } from "#components";
 import { WindowWrapper } from "#hoc";
 import { Download } from "lucide-react";
@@ -5,13 +7,21 @@ import { Document, Page, pdfjs } from "react-pdf";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 	"pdfjs-dist/build/pdf.worker.min.mjs",
-	import.meta.url
+	import.meta.url,
 ).toString();
 
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
 
 const Resume = () => {
+	const [numPages, setNumPages] = useState<number | null>(null);
+
+	const onDocumentLoadSuccess = ({
+		numPages: pages,
+	}: PDFDocumentProxy) => {
+		setNumPages(pages);
+	};
+
 	return (
 		<>
 			<div id="window-header">
@@ -30,12 +40,22 @@ const Resume = () => {
 			<Document
 				file="/files/resume.pdf"
 				className="resume-pdf"
+				onLoadSuccess={onDocumentLoadSuccess}
 			>
-				<Page
-					pageNumber={1}
-					renderTextLayer
-					renderAnnotationLayer
-				/>
+				{numPages !== null &&
+					Array.from(
+						{ length: numPages },
+						(_, i) => (
+							<Page
+								key={i + 1}
+								pageNumber={
+									i + 1
+								}
+								renderTextLayer
+								renderAnnotationLayer
+							/>
+						),
+					)}
 			</Document>
 		</>
 	);
