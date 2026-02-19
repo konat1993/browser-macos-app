@@ -1,12 +1,11 @@
 import { WindowControls } from "#components";
-import { blogPosts } from "#constants";
-import type { BlogPost } from "#constants/types";
+import { experiences } from "#constants";
+import type { Experience } from "#constants/types";
 import { WindowWrapper } from "#hoc";
 import {
 	ChevronLeft,
 	ChevronRight,
 	Copy,
-	MoveRight,
 	PanelLeft,
 	Plus,
 	Search,
@@ -14,25 +13,35 @@ import {
 	ShieldHalf,
 } from "lucide-react";
 
-const renderBlogPosts = (blogPostsData: BlogPost[]) => {
-	return blogPostsData.map(({ id, date, title, image, link }) => (
-		<div key={id} className="blog-post">
-			<div className="col-span-2">
-				<img src={image} alt={title} />
-			</div>
-			<div className="content">
-				<p>{date}</p>
-				<h3>{title}</h3>
-				<a
-					href={link}
-					target="_blank"
-					rel="noreferrer noopener"
-				>
-					Check out the full post{" "}
-					<MoveRight className="icon-hover" />
-				</a>
-			</div>
-		</div>
+const renderExperience = (experiencesData: Experience[]) => {
+	return experiencesData.map(({ id, title, stack, contributions }) => (
+		<article key={id} className="experience-post">
+			<header className="experience-post__header">
+				<h3 className="experience-post__title">
+					{title}
+				</h3>
+				<div className="experience-post__stack">
+					{stack.map((tech) => (
+						<span
+							key={tech}
+							className="experience-post__tag"
+						>
+							{tech}
+						</span>
+					))}
+				</div>
+			</header>
+			<section className="experience-post__body">
+				<h4 className="experience-post__subtitle">
+					Key contributions
+				</h4>
+				<ul className="experience-post__list">
+					{contributions.map((item, i) => (
+						<li key={i}>{item}</li>
+					))}
+				</ul>
+			</section>
+		</article>
 	));
 };
 
@@ -67,9 +76,9 @@ const Safari = () => {
 			</div>
 
 			<div className="blog">
-				<h2>My Developer Blog</h2>
-				<div className="space-y-8">
-					{renderBlogPosts(blogPosts)}
+				<h2>My Developer Experience</h2>
+				<div className="blog-experience-list">
+					{renderExperience(experiences)}
 				</div>
 			</div>
 		</>
