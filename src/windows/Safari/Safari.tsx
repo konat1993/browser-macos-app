@@ -14,35 +14,48 @@ import {
 } from "lucide-react";
 
 const renderExperience = (experiencesData: Experience[]) => {
-	return experiencesData.map(({ id, title, stack, contributions }) => (
-		<article key={id} className="experience-post">
-			<header className="experience-post__header">
-				<h3 className="experience-post__title">
-					{title}
-				</h3>
-				<div className="experience-post__stack">
-					{stack.map((tech) => (
-						<span
-							key={tech}
-							className="experience-post__tag"
-						>
-							{tech}
-						</span>
-					))}
-				</div>
-			</header>
-			<section className="experience-post__body">
-				<h4 className="experience-post__subtitle">
-					Key contributions
-				</h4>
-				<ul className="experience-post__list">
-					{contributions.map((item, i) => (
-						<li key={i}>{item}</li>
-					))}
-				</ul>
-			</section>
-		</article>
-	));
+	return experiencesData.map(
+		({ id, title, stack, contributions, logo }) => (
+			<article key={id} className="experience-post">
+				<header className="experience-post__header">
+					<div className="experience-post__thumb">
+						<img src={logo} alt="" />
+					</div>
+					<div className="experience-post__header-content">
+						<h3 className="experience-post__title">
+							{title}
+						</h3>
+						<div className="experience-post__stack">
+							{stack.map((tech) => (
+								<span
+									key={
+										tech
+									}
+									className="experience-post__tag"
+								>
+									{tech}
+								</span>
+							))}
+						</div>
+					</div>
+				</header>
+				<section className="experience-post__body">
+					<h4 className="experience-post__subtitle">
+						Key contributions
+					</h4>
+					<ul className="experience-post__list">
+						{contributions.map(
+							(item, i) => (
+								<li key={i}>
+									{item}
+								</li>
+							),
+						)}
+					</ul>
+				</section>
+			</article>
+		),
+	);
 };
 
 const Safari = () => {
@@ -63,7 +76,7 @@ const Safari = () => {
 
 						<input
 							type="text"
-							placeholder="Search or enter website name"
+							placeholder="Search or enter phrase..."
 							className="flex-1"
 						/>
 					</div>
@@ -75,7 +88,7 @@ const Safari = () => {
 				</div>
 			</div>
 
-			<div className="blog">
+			<div className="blog overflow-y-auto max-h-[calc(70vh-50px)]">
 				<h2>My Developer Experience</h2>
 				<div className="blog-experience-list">
 					{renderExperience(experiences)}

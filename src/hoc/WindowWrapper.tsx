@@ -35,7 +35,7 @@ export const WindowWrapper = <P extends object>({
 					y: 0,
 					duration: 0.4,
 					ease: "power3.out",
-				}
+				},
 			);
 		}, [isOpen]);
 

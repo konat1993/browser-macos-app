@@ -3,6 +3,7 @@ import {
 	ContactWindow,
 	FinderWindow,
 	ImageWindow,
+	MarkdownWindow,
 	ResumeWindow,
 	SafariWindow,
 	TerminalWindow,
@@ -26,6 +27,7 @@ const App = () => {
 			<FinderWindow />
 			<TextWindow />
 			<ImageWindow />
+			<MarkdownWindow />
 			<ContactWindow />
 		</main>
 	);

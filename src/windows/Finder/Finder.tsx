@@ -25,14 +25,14 @@ const Finder = () => {
 						key={location.id}
 						onClick={() => {
 							setActiveLocation(
-								location
+								location,
 							);
 						}}
 						className={clsx(
 							location.id ===
 								activeLocation?.id
 								? "active"
-								: "not-active"
+								: "not-active",
 						)}
 					>
 						<img
@@ -60,6 +60,12 @@ const Finder = () => {
 
 		if (["fig", "url"].includes(item.fileType) && item.href) {
 			return window.open(item.href, "_blank");
+		}
+		if (item.fileType === "md") {
+			return openWindow({
+				windowKey: "md",
+				data: item,
+			});
 		}
 
 		openWindow({

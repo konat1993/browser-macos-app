@@ -6,7 +6,8 @@ export type WindowKey =
 	| "terminal"
 	| "resume"
 	| "txtfile"
-	| "imgfile";
+	| "imgfile"
+	| "md";
 
 export type WindowsConfig = {
 	[key in WindowKey]: {
@@ -41,6 +42,7 @@ export type TechStack = {
 export type Experience = {
 	id: number;
 	title: string;
+	logo: string;
 	stack: string[];
 	contributions: string[];
 };
@@ -63,17 +65,21 @@ export type BaseNode = {
 // FILES
 // ------------------
 
-export type FileType = "txt" | "img" | "url" | "fig" | "pdf";
+export type FileType = "txt" | "img" | "url" | "fig" | "pdf" | "md";
 
-export interface FileNode extends BaseNode {
+export type FileNode = BaseNode & {
 	kind: "file";
 	fileType: FileType;
 	href?: string;
-	imageUrl?: string;
 	description?: string[];
 	subtitle?: string;
 	image?: string;
-}
+	markDownUrlFile?: string;
+} & (
+		| { imageUrl: string; images?: never }
+		| { imageUrl?: never; images: string[] }
+		| { imageUrl?: never; images?: never }
+	);
 
 // ------------------
 // FOLDERS
