@@ -1,50 +1,50 @@
 export type WindowKey =
-	| "finder"
-	| "safari"
-	| "photos"
-	| "contact"
-	| "terminal"
-	| "resume"
-	| "txtfile"
-	| "imgfile"
-	| "md";
+  | "finder"
+  | "safari"
+  | "photos"
+  | "contact"
+  | "terminal"
+  | "resume"
+  | "txtfile"
+  | "imgfile"
+  | "md";
 
 export type WindowsConfig = {
-	[key in WindowKey]: {
-		isOpen: boolean;
-		zIndex: number;
-		data: FileNode | null;
-	};
+  [key in WindowKey]: {
+    isOpen: boolean;
+    zIndex: number;
+    data: FileNode | null;
+  };
 };
 
 export type NavLink = {
-	id: number;
-	name: string;
-	type: WindowKey;
+  id: number;
+  name: string;
+  type: WindowKey;
 };
 
 export type NavIcons = {
-	id: number;
-	img: string;
+  id: number;
+  img: string;
 };
 
 export type DockApp = {
-	id: WindowKey | "trash";
-	canOpen: boolean;
-	icon: string;
-	name: string;
+  id: WindowKey | "trash";
+  canOpen: boolean;
+  icon: string;
+  name: string;
 };
 
 export type TechStack = {
-	category: string;
-	items: string[];
+  category: string;
+  items: string[];
 };
 export type Experience = {
-	id: number;
-	title: string;
-	logo: string;
-	stack: string[];
-	contributions: string[];
+  id: number;
+  title: string;
+  logo: string;
+  stack: string[];
+  contributions: string[];
 };
 
 // Locations types
@@ -53,12 +53,12 @@ export type Experience = {
 // ============
 
 export type BaseNode = {
-	id: number;
-	name: string;
-	icon: string;
-	kind: "file" | "folder";
-	position?: string; // position inside Finder
-	windowPosition?: string; // optional Finder window position
+  id: number;
+  name: string;
+  icon: string;
+  kind: "file" | "folder";
+  position?: string; // position inside Finder
+  windowPosition?: string; // optional Finder window position
 };
 
 // ------------------
@@ -68,26 +68,26 @@ export type BaseNode = {
 export type FileType = "txt" | "img" | "url" | "fig" | "pdf" | "md";
 
 export type FileNode = BaseNode & {
-	kind: "file";
-	fileType: FileType;
-	href?: string;
-	description?: string[];
-	subtitle?: string;
-	image?: string;
-	markDownUrlFile?: string;
+  kind: "file";
+  fileType: FileType;
+  href?: string;
+  description?: string[];
+  subtitle?: string;
+  image?: string;
+  markDownUrlFile?: string;
 } & (
-		| { imageUrl: string; images?: never }
-		| { imageUrl?: never; images: string[] }
-		| { imageUrl?: never; images?: never }
-	);
+    | { imageUrl: string; images?: never }
+    | { imageUrl?: never; images: string[] }
+    | { imageUrl?: never; images?: never }
+  );
 
 // ------------------
 // FOLDERS
 // ------------------
 
 export interface FolderNode extends BaseNode {
-	kind: "folder";
-	children: ExplorerNode[];
+  kind: "folder";
+  children: ExplorerNode[];
 }
 
 export type ExplorerNode = FileNode | FolderNode;
@@ -97,17 +97,15 @@ export type ExplorerNode = FileNode | FolderNode;
 // ============
 
 export interface BaseLocation extends FolderNode {
-	type: "work" | "about" | "resume" | "trash";
+  type: "work" | "about" | "resume" | "trash";
 }
 
 export type WorkLocation = BaseLocation & { type: "work" };
-export type AboutLocation = BaseLocation & { type: "about" };
 export type ResumeLocation = BaseLocation & { type: "resume" };
 export type TrashLocation = BaseLocation & { type: "trash" };
 
 export type Locations = {
-	work: WorkLocation;
-	about: AboutLocation;
-	resume: ResumeLocation;
-	trash: TrashLocation;
+  work: WorkLocation;
+  resume: ResumeLocation;
+  trash: TrashLocation;
 };
