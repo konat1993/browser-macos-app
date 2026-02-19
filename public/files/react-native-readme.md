@@ -44,19 +44,22 @@ The app expects a Convex backend and the Convex deployment URL in the environmen
 
 1. Sign up at [convex.dev](https://convex.dev) and install the Convex CLI if needed.
 2. Log in and create/link a Convex project (from the project root):
-  ```bash
-   npx convex dev
-  ```
-   On first run this will prompt you to log in and create or link a project. It will push the schema and functions from `convex/schema.ts` and `convex/todos.ts` and give you a deployment URL.
-3. Create a `.env.local` file in the project root with your Convex URL:
-  ```bash
-   EXPO_PUBLIC_CONVEX_URL=https://<your-deployment>.convex.cloud
-  ```
-   Replace `<your-deployment>` with the URL shown by `npx convex dev` or from the [Convex dashboard](https://dashboard.convex.dev).
-4. Keep the Convex dev server running in a separate terminal while developing (so the backend is available):
-  ```bash
-   npx convex dev
-  ```
+
+```bash
+ npx convex dev
+```
+
+On first run this will prompt you to log in and create or link a project. It will push the schema and functions from `convex/schema.ts` and `convex/todos.ts` and give you a deployment URL. 3. Create a `.env.local` file in the project root with your Convex URL:
+
+```bash
+ EXPO_PUBLIC_CONVEX_URL=https://<your-deployment>.convex.cloud
+```
+
+Replace `<your-deployment>` with the URL shown by `npx convex dev` or from the [Convex dashboard](https://dashboard.convex.dev). 4. Keep the Convex dev server running in a separate terminal while developing (so the backend is available):
+
+```bash
+ npx convex dev
+```
 
 ### 3. Start the Expo app
 
@@ -75,7 +78,7 @@ Then:
 
 ## Project structure (overview)
 
-- `**app/`** – Expo Router screens: `_layout.tsx` (Convex + theme providers), `(tabs)/` with `index.tsx` (Todos) and `settings.tsx` (Settings).
+- `**app/`\*\* – Expo Router screens: `_layout.tsx` (Convex + theme providers), `(tabs)/` with `index.tsx` (Todos) and `settings.tsx` (Settings).
 - `**components/**` – UI: `Header`, `TodoInput`, `TodoItem`, `EmptyState`, `LoadingSpinner`, `ProgressStats`, `PreferencesSettings`, `DangerZone`, `SettingsSection`, `SettingsSwitchItem`, etc.
 - `**convex/**` – Convex schema (`schema.ts`) and todo API (`todos.ts`: get, add, toggle, delete, update, deleteAll).
 - `**hooks/**` – `useTheme`, `useTodoActions`.
@@ -84,16 +87,13 @@ Then:
 
 ## Environment variables
 
-
 | Variable                 | Required | Description                        |
 | ------------------------ | -------- | ---------------------------------- |
 | `EXPO_PUBLIC_CONVEX_URL` | Yes      | Convex deployment URL for the app. |
 
-
 Without `EXPO_PUBLIC_CONVEX_URL`, the app will throw at startup. Use `.env.local` (or another Expo-supported env file) and keep it out of version control.
 
 ## Scripts
-
 
 | Command                | Description                    |
 | ---------------------- | ------------------------------ |
@@ -106,10 +106,8 @@ Without `EXPO_PUBLIC_CONVEX_URL`, the app will throw at startup. Use `.env.local
 | `npm run format`       | Format with Prettier           |
 | `npm run format:check` | Check formatting with Prettier |
 
-
 ## Learn more
 
 - [Expo documentation](https://docs.expo.dev/)
 - [Expo Router](https://docs.expo.dev/router/introduction/)
 - [Convex documentation](https://docs.convex.dev/)
-

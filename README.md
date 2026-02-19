@@ -1,73 +1,77 @@
-# React + TypeScript + Vite
+# Lukasz's Portfolio — macOS-style Browser
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A portfolio website that mimics the macOS desktop experience in the browser. Built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+**Live demo:** [https://browser-macos-app.vercel.app/](https://browser-macos-app.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## About the project
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project presents a developer portfolio as an interactive macOS-style interface. Visitors use a menu bar, dock, and draggable windows to explore projects, resume, skills, and contact info—all within a single-page app that feels like a desktop environment.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **macOS-style UI** — Menu bar with live date/time, dock with app icons and hover effects, and window controls (close / minimize / fullscreen).
+- **Draggable windows** — All app windows can be dragged and reordered; focus and z-index are managed when you click a window.
+- **Finder (Portfolio)** — File-explorer view with Favorites (Projects, Resume, Trash) and a “Work” folder. Double-click items to open:
+  - **Folders** — Navigate into project folders.
+  - **PDF** — Opens the Resume viewer.
+  - **Markdown** — Renders README-style content in a dedicated window.
+  - **Images** — Opens an image viewer (single or gallery).
+  - **URLs / Figma links** — Open in a new tab.
+- **Safari (Articles)** — “Browser” window showing developer experience: project cards with tech stack and key contributions.
+- **Terminal (Skills)** — Terminal-style window listing tech stack by category (Frontend, Mobile, Styling, Dev Tools).
+- **Contact** — Profile photo, email, and links to LinkedIn and GitHub.
+- **Resume** — In-app PDF viewer for the resume (also openable from Finder).
+- **Welcome section** — Animated title and subtitle with GSAP-based hover effects.
+- **Responsive note** — Optimized for desktop/tablet; a message is shown on small screens.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Tech stack
+
+- **React 19** + **TypeScript**
+- **Vite 7** — Build and dev server
+- **Tailwind CSS 4** — Styling
+- **Zustand** (with Immer) — Window and location state
+- **GSAP** (with Draggable) — Window drag-and-drop and welcome animations
+- **Lucide React** — Icons
+- **react-markdown** + **remark-gfm** — Markdown rendering
+- **react-pdf** — PDF viewer
+- **dayjs** — Date/time in the menu bar
+
+---
+
+## Getting started
+
+### Prerequisites
+
+- Node.js (v18+ recommended)
+- npm (or pnpm / yarn)
+
+### Install and run
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Then open [http://localhost:5173](http://localhost:5173) (or the URL shown in the terminal).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| Command           | Description                    |
+|-------------------|--------------------------------|
+| `npm run dev`     | Start Vite dev server          |
+| `npm run build`   | Type-check and production build|
+| `npm run preview` | Preview production build      |
+| `npm run lint`    | Run ESLint                     |
+| `npm run typecheck` | Run TypeScript check        |
+| `npm run check:all` | Lint + typecheck + cspell   |
+| `npm run format`  | Format with Prettier           |

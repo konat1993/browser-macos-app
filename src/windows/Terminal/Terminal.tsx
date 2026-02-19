@@ -5,66 +5,58 @@ import { WindowWrapper } from "#hoc";
 import { Check, Flag } from "lucide-react";
 
 const renderTechStack = (techStackData: TechStack[]) =>
-	techStackData.map(({ category, items }) => (
-		<li key={category} className="flex items-start">
-			<div className="flex">
-				<Check className="check" size={20} />
-				<h3>{category}</h3>
-			</div>
+  techStackData.map(({ category, items }) => (
+    <li key={category} className="flex items-start">
+      <div className="flex">
+        <Check className="check" size={20} />
+        <h3>{category}</h3>
+      </div>
 
-			<ul className="flex flex-wrap gap-x-2 gap-y-0">
-				{items.map((item, idx) => (
-					<li key={`${idx}-${item}`}>
-						{item}
-						{idx < items.length - 1
-							? ", "
-							: ""}
-					</li>
-				))}
-			</ul>
-		</li>
-	));
+      <ul className="flex flex-wrap gap-x-2 gap-y-0">
+        {items.map((item, idx) => (
+          <li key={`${idx}-${item}`}>
+            {item}
+            {idx < items.length - 1 ? ", " : ""}
+          </li>
+        ))}
+      </ul>
+    </li>
+  ));
 
 const Terminal = () => {
-	const totalTechStack = techStack.length;
-	return (
-		<>
-			<div id="window-header">
-				<WindowControls target="terminal" />
-				<h2>Tech Stack</h2>
-			</div>
-			<div className="tech_stack">
-				<p>
-					<span className="font-bold">
-						@lukasz %{" "}
-					</span>
-					show tech stack
-				</p>
-				<div className="label">
-					<p className="w-32">Category</p>
-					<p>Technologies</p>
-				</div>
-				<ul className="content space-y-2">
-					{renderTechStack(techStack)}
-				</ul>
-				<div className="footnote">
-					<p>
-						<Check size={20} />{" "}
-						{totalTechStack} of{" "}
-						{totalTechStack} stacks loaded
-						successfully (100%)
-					</p>
-					<p className="text-black">
-						<Flag size={15} fill="black" />
-						Render time: 6ms
-					</p>
-				</div>
-			</div>
-		</>
-	);
+  const totalTechStack = techStack.length;
+  return (
+    <>
+      <div id="window-header">
+        <WindowControls target="terminal" />
+        <h2>Tech Stack</h2>
+      </div>
+      <div className="tech_stack">
+        <p>
+          <span className="font-bold">@lukasz % </span>
+          show tech stack
+        </p>
+        <div className="label">
+          <p className="w-32">Category</p>
+          <p>Technologies</p>
+        </div>
+        <ul className="content space-y-2">{renderTechStack(techStack)}</ul>
+        <div className="footnote">
+          <p>
+            <Check size={20} /> {totalTechStack} of {totalTechStack} stacks loaded successfully
+            (100%)
+          </p>
+          <p className="text-black">
+            <Flag size={15} fill="black" />
+            Render time: 6ms
+          </p>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export const TerminalWindow = WindowWrapper({
-	Component: Terminal,
-	windowKey: "terminal",
+  Component: Terminal,
+  windowKey: "terminal",
 });
