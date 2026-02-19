@@ -130,10 +130,46 @@ body {
     }
 
     .blog {
-      @apply bg-white p-10 max-w-3xl mx-auto;
+      @apply flex-1 min-h-0 overflow-y-auto bg-white p-10 max-w-3xl mx-auto;
 
       h2 {
         @apply text-xl font-bold text-pink-600 mb-10;
+      }
+
+      .blog-experience-list {
+        @apply flex flex-col gap-10;
+      }
+
+      .experience-post {
+        @apply border-b border-gray-200 pb-10 last:border-b-0 last:pb-0;
+      }
+
+      .experience-post__header {
+        @apply mb-4;
+      }
+
+      .experience-post__title {
+        @apply font-semibold text-gray-900 text-lg mb-3 leading-tight;
+      }
+
+      .experience-post__stack {
+        @apply flex flex-wrap gap-2;
+      }
+
+      .experience-post__tag {
+        @apply text-xs font-medium px-2.5 py-1 rounded-full bg-gray-100 text-gray-700 border border-gray-200;
+      }
+
+      .experience-post__body {
+        @apply pl-0;
+      }
+
+      .experience-post__subtitle {
+        @apply text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2;
+      }
+
+      .experience-post__list {
+        @apply list-disc list-inside text-sm text-gray-700 space-y-1.5;
       }
 
       .blog-post {
