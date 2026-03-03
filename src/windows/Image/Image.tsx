@@ -23,17 +23,18 @@ export const Image = () => {
             <img
               src={imageUrl}
               alt={name}
-              className="w-full h-auto max-h-[70vh] object-contain rounded"
+              className="w-full h-auto max-h-[70vh] object-contain rounded shadow-xl drop-shadow-xl"
             />
           </div>
         ) : null}
         {images ? (
-          <div className="w-full flex gap-4 flex-wrap justify-center">
+          <div className="w-full flex gap-10 flex-wrap justify-center">
             {images.map((image) => (
               <img
+                key={image}
                 src={image}
                 alt={name}
-                className="h-auto max-h-[50vh] object-contain rounded-2xl"
+                className="h-auto max-h-[50vh] object-contain rounded-2xl shadow-xl drop-shadow-xl"
               />
             ))}
           </div>

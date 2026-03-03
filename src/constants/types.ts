@@ -59,6 +59,7 @@ export type BaseNode = {
   kind: "file" | "folder";
   position?: string; // position inside Finder
   windowPosition?: string; // optional Finder window position
+  width?: string;
 };
 
 // ------------------

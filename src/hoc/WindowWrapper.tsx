@@ -14,7 +14,7 @@ export const WindowWrapper = <P extends object>({ Component, windowKey }: Props<
   const Wrapped = (props: P) => {
     const { focusWindow, windows } = useWindowStore();
 
-    const { isOpen, zIndex } = windows[windowKey];
+    const { isOpen, zIndex, data } = windows[windowKey];
     const ref = useRef<HTMLDivElement | null>(null);
 
     useGSAP(() => {
@@ -58,7 +58,15 @@ export const WindowWrapper = <P extends object>({ Component, windowKey }: Props<
     }, [isOpen]);
 
     return (
-      <section id={windowKey} ref={ref} className="absolute" style={{ zIndex }}>
+      <section
+        id={windowKey}
+        ref={ref}
+        className="absolute"
+        style={{
+          zIndex,
+          ...(data?.width != null && { maxWidth: data.width }),
+        }}
+      >
         <Component {...props} />
       </section>
     );
