@@ -40,15 +40,15 @@ After the first run, you can use `make dev-only` to start only the Next.js serve
 
 ### Other Make targets
 
-| Command       | Description                                      |
-|---------------|--------------------------------------------------|
-| `make dev`    | Full flow: Docker + setup + Next.js (recommended) |
-| `make setup`  | Only Docker + deps + migrations                  |
-| `make dev-only` | Start Next.js only (after setup)              |
-| `make up`     | Start Postgres only (when you need just the DB, e.g. for Prisma Studio) |
-| `make down`   | Stop Docker services                             |
-| `make from-scratch` | clean then dev (full reset)                |
-| `make help`   | List all targets                                 |
+| Command             | Description                                                             |
+| ------------------- | ----------------------------------------------------------------------- |
+| `make dev`          | Full flow: Docker + setup + Next.js (recommended)                       |
+| `make setup`        | Only Docker + deps + migrations                                         |
+| `make dev-only`     | Start Next.js only (after setup)                                        |
+| `make up`           | Start Postgres only (when you need just the DB, e.g. for Prisma Studio) |
+| `make down`         | Stop Docker services                                                    |
+| `make from-scratch` | clean then dev (full reset)                                             |
+| `make help`         | List all targets                                                        |
 
 When you change the Prisma schema, create and apply a migration with: `pnpm db:migrate` (runs `prisma migrate dev`).
 

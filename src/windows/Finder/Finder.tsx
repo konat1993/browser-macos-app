@@ -5,10 +5,12 @@ import { WindowWrapper } from "#hoc";
 import { useLocationStore, useWindowStore } from "#store";
 import clsx from "clsx";
 import { Search } from "lucide-react";
+import { useRef } from "react";
 
 const Finder = () => {
   const { openWindow } = useWindowStore();
   const { activeLocation, setActiveLocation } = useLocationStore();
+  const lastTouchTapRef = useRef<{ id: string | number; at: number } | null>(null);
 
   const renderItemsList = ({
     name,
@@ -61,10 +63,31 @@ const Finder = () => {
     });
   };
 
+  const handleTouchDoubleTap = (event: React.PointerEvent<HTMLLIElement>, item: ExplorerNode) => {
+    if (event.pointerType !== "touch") return;
+
+    const now = event.timeStamp;
+    const lastTap = lastTouchTapRef.current;
+    const isDoubleTap = Boolean(lastTap && lastTap.id === item.id && now - lastTap.at < 350);
+
+    if (isDoubleTap) {
+      openItem(item);
+      lastTouchTapRef.current = null;
+      return;
+    }
+
+    lastTouchTapRef.current = { id: item.id, at: now };
+  };
+
   const renderFinderContentView = () => {
     if (activeLocation && "children" in activeLocation) {
       return activeLocation?.children.map((item) => (
-        <li key={item.id} className={item.position} onDoubleClick={() => openItem(item)}>
+        <li
+          key={item.id}
+          className={item.position}
+          onDoubleClick={() => openItem(item)}
+          onPointerUp={(event) => handleTouchDoubleTap(event, item)}
+        >
           <img src={item.icon} alt={item.name} />
           <p>{item.name}</p>
         </li>

@@ -3,10 +3,19 @@
 @import "tailwindcss";
 
 html,
-body {
-  width: 100dvw;
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100svh;
   overflow: hidden;
-  height: 100dvh;
+  overscroll-behavior: none;
+}
+
+body {
+  min-height: 100dvh;
   background-image: url("/images/wallpaper.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -33,7 +42,9 @@ body {
 
 @layer base {
   main {
-    @apply w-dvw h-dvh overflow-hidden;
+    @apply w-full h-full overflow-hidden;
+    min-height: 100svh;
+    position: relative;
   }
 
   nav {
@@ -79,14 +90,14 @@ body {
   }
 
   #dock {
-    @apply absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none max-sm:hidden;
+    @apply absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none;
 
     .dock-container {
       @apply bg-white/20 backdrop-blur-md justify-between rounded-2xl p-1.5 flex items-end gap-1.5;
     }
 
     .tooltip {
-      @apply !py-1 !px-3 !w-fit !text-center !text-xs !rounded-md !bg-blue-200 !text-blue-900 !shadow-2xl;
+      @apply py-1! px-3! w-fit! text-center! text-xs! rounded-md! bg-blue-200! text-blue-900! shadow-2xl!;
     }
 
     .dock-icon {
@@ -101,8 +112,12 @@ body {
   #window-controls {
     @apply flex gap-2;
 
+    .close-wrap {
+      @apply relative flex items-center;
+    }
+
     .close {
-      @apply size-3.5 rounded-full bg-[#ff6157] cursor-pointer;
+      @apply block size-3.5 rounded-full bg-[#ff6157] cursor-pointer appearance-none border-0 p-0;
     }
 
     .minimize {
@@ -111,6 +126,15 @@ body {
 
     .maximize {
       @apply size-3.5 rounded-full bg-[#2acb42];
+    }
+
+    .close-tooltip {
+      @apply absolute left-[calc(100%+6px)] top-0 -translate-y-1/2 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide rounded border border-gray-300 text-gray-500 bg-white/90 leading-none select-none opacity-0 -translate-x-1 pointer-events-none transition-all duration-150;
+    }
+
+    .close-wrap:hover .close-tooltip,
+    .close-wrap:focus-within .close-tooltip {
+      @apply opacity-100 translate-x-0;
     }
   }
 
@@ -387,6 +411,114 @@ body {
           @apply text-sm text-white text-center px-1 rounded-md group-hover:bg-blue-500 transition-colors max-w-40;
         }
       }
+    }
+  }
+
+  @media (max-width: 640px) {
+    #welcome {
+      @apply px-4 w-full max-w-full overflow-hidden;
+
+      .small-screen {
+        @apply top-16 mx-4 max-w-[calc(100vw-2rem)];
+      }
+    }
+
+    #dock {
+      @apply bottom-2 left-0 right-0 translate-x-0 px-3;
+
+      .dock-container {
+        @apply w-full overflow-x-auto justify-start;
+      }
+
+      .dock-icon {
+        @apply size-11 shrink-0;
+      }
+    }
+
+    #window-header {
+      @apply px-3 py-2 text-xs gap-2;
+
+      h2 {
+        @apply truncate;
+      }
+    }
+
+    #safari .search {
+      @apply w-full;
+    }
+
+    #safari,
+    #terminal,
+    #contact,
+    #resume,
+    #finder,
+    #txtfile,
+    #md,
+    #imgfile {
+      @apply fixed top-12 left-2 right-2 rounded-xl w-auto max-w-none min-w-0 max-h-none;
+    }
+
+    #safari .blog,
+    #terminal .tech_stack,
+    #contact > div:last-child,
+    #resume > div:last-child,
+    #finder .content,
+    #txtfile > div:last-child,
+    #md .markdown-body,
+    #imgfile > div:last-child {
+      @apply max-h-[calc(100dvh-9rem)] overflow-auto;
+    }
+
+    #imgfile > div:last-child {
+      min-width: 0 !important;
+    }
+
+    #finder .bg-white {
+      @apply flex-col;
+    }
+
+    #finder .sidebar {
+      @apply w-full p-3;
+    }
+
+    #finder .content {
+      @apply min-h-0 p-4 grid grid-cols-2 gap-4 max-w-none;
+    }
+
+    #finder .content li {
+      @apply static items-center;
+    }
+
+    #finder .content li p {
+      @apply w-full;
+    }
+
+    #contact ul {
+      @apply flex-wrap;
+    }
+
+    #contact ul li {
+      @apply w-full max-w-none;
+    }
+
+    #terminal .tech_stack {
+      @apply p-3 text-xs;
+    }
+
+    #terminal .tech_stack .label {
+      @apply ms-0 mt-4;
+    }
+
+    #terminal .tech_stack .content li {
+      @apply flex-col items-start;
+    }
+
+    #terminal .tech_stack .content li h3 {
+      @apply w-auto ms-0;
+    }
+
+    #terminal .tech_stack .content li ul {
+      @apply block;
     }
   }
 }
