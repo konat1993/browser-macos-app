@@ -27,7 +27,6 @@ This project presents a developer portfolio as an interactive macOS-style interf
 - **Contact** — Profile photo, email, and links to LinkedIn and GitHub.
 - **Resume** — In-app PDF viewer for the resume (also openable from Finder).
 - **Welcome section** — Animated title and subtitle with GSAP-based hover effects.
-- **Responsive note** — Optimized for desktop/tablet; a message is shown on small screens.
 
 ---
 
