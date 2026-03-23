@@ -39,16 +39,19 @@ export const WindowWrapper = <P extends object>({ Component, windowKey }: Props<
     useGSAP(() => {
       const el = ref.current;
 
-      if (!el) return;
+      if (!el || !isOpen) return;
+      const headerHandle = el.querySelector<HTMLElement>("#window-header");
+      if (!headerHandle) return;
 
       const [instance] = Draggable.create(el, {
+        trigger: headerHandle,
         onPress: () => focusWindow({ windowKey }),
       });
 
       return () => {
         instance.kill();
       };
-    }, []);
+    }, [isOpen]);
 
     useLayoutEffect(() => {
       const el = ref.current;
@@ -57,11 +60,17 @@ export const WindowWrapper = <P extends object>({ Component, windowKey }: Props<
       el.style.display = isOpen ? "block" : "none";
     }, [isOpen]);
 
+    const handlePointerDown = () => {
+      if (!isOpen) return;
+      focusWindow({ windowKey });
+    };
+
     return (
       <section
         id={windowKey}
         ref={ref}
         className="absolute"
+        onPointerDownCapture={handlePointerDown}
         style={{
           zIndex,
           ...(data?.width != null && { maxWidth: data.width }),

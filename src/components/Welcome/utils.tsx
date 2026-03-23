@@ -14,12 +14,13 @@ export const renderText = ({
     return (
       <span
         key={idx}
+        data-hover-letter="true"
         className={className}
         style={{
           fontVariationSettings: `'wght' ${baseWeight}`,
         }}
       >
-        {char === " " ? "\u00A0" : char}
+        {char}
       </span>
     );
   });
@@ -107,7 +108,7 @@ export const setupTextHover = ({
 }) => {
   if (!container) return;
 
-  const letters = container.querySelectorAll("span");
+  const letters = container.querySelectorAll<HTMLSpanElement>('[data-hover-letter="true"]');
 
   const { min, max, base } = FONT_WEIGHTS[type];
 

@@ -66,12 +66,12 @@ Then open [http://localhost:5173](http://localhost:5173) (or the URL shown in th
 
 ### Scripts
 
-| Command           | Description                    |
-|-------------------|--------------------------------|
-| `npm run dev`     | Start Vite dev server          |
-| `npm run build`   | Type-check and production build|
-| `npm run preview` | Preview production build      |
-| `npm run lint`    | Run ESLint                     |
-| `npm run typecheck` | Run TypeScript check        |
-| `npm run check:all` | Lint + typecheck + cspell   |
-| `npm run format`  | Format with Prettier           |
+| Command             | Description                     |
+| ------------------- | ------------------------------- |
+| `npm run dev`       | Start Vite dev server           |
+| `npm run build`     | Type-check and production build |
+| `npm run preview`   | Preview production build        |
+| `npm run lint`      | Run ESLint                      |
+| `npm run typecheck` | Run TypeScript check            |
+| `npm run check:all` | Lint + typecheck + cspell       |
+| `npm run format`    | Format with Prettier            |
