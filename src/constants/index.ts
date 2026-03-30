@@ -257,7 +257,7 @@ const WORK_LOCATION: WorkLocation = {
       name: "3D Multiplayer Game",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-30 right-45",
+      position: "top-20 right-55",
       windowPosition: "top-[5vh] left-5",
       children: [
         {
@@ -318,7 +318,7 @@ const WORK_LOCATION: WorkLocation = {
       name: "AI Workspace",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-68 right-85",
+      position: "top-62 right-85",
       windowPosition: "top-[5vh] left-5",
       children: [
         {
@@ -363,7 +363,7 @@ const WORK_LOCATION: WorkLocation = {
       name: "React Native Todo App",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "bottom-30 left-45",
+      position: "top-56 left-55",
       windowPosition: "top-[5vh] left-5",
       children: [
         {
