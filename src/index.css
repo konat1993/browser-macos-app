@@ -427,7 +427,7 @@ body {
       @apply bottom-2 left-0 right-0 translate-x-0 px-3;
 
       .dock-container {
-        @apply w-full overflow-x-auto justify-start;
+        @apply w-fit mx-auto;
       }
 
       .dock-icon {
